@@ -168,8 +168,8 @@
     width: 100vw;
     margin-left: -16px;
     height: 130px;
-    margin-top: -55px;
-    margin-bottom: -10px;
+    margin-top: -45px;
+    margin-bottom: -70px;
     overflow: hidden;
     z-index: 0;
     mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.9) 6%, rgba(0,0,0,0.9) 94%, transparent 100%);
