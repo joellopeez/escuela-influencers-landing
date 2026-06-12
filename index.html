@@ -82,7 +82,14 @@
     animation: fadeUp 0.7s 0.2s ease both;
   }
 
-  @media (max-width: 640px) { .sub-br { display: none; } }
+  @media (max-width: 640px) {
+    body { padding: 24px 16px; }
+    .sub-br { display: none; }
+    .badge { margin-bottom: 16px; }
+    h1 { padding: 0 8px; margin-bottom: 14px; }
+    .subtitle { padding: 0 12px; margin-bottom: 22px; }
+    .video-stage { margin-bottom: 18px; }
+  }
 
   /* ===== VIDEO + CARRUSEL LATERAL DE FONDO ===== */
   .video-stage {
@@ -151,8 +158,33 @@
   }
 
   @media (max-width: 640px) {
-    .carousel-rail { height: 70px; opacity: 0.6; }
-    .carousel-track img { width: 64px; height: 64px; border-radius: 10px; }
+    .carousel-rail { display: none; }
+  }
+
+  /* Carrusel visible en movil, encima del video */
+  .mobile-carousel {
+    display: none;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    margin: 0 -16px 14px;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.9) 6%, rgba(0,0,0,0.9) 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.9) 6%, rgba(0,0,0,0.9) 94%, transparent 100%);
+  }
+  .mobile-carousel .carousel-track {
+    gap: 12px;
+    animation: scrollHorizontal 24s linear infinite;
+  }
+  .mobile-carousel .carousel-track img {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    opacity: 0.9;
+    filter: grayscale(0%);
+  }
+
+  @media (max-width: 640px) {
+    .mobile-carousel { display: block; }
   }
 
   .cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; animation: fadeUp 0.7s 0.35s ease both; }
@@ -209,6 +241,19 @@
     </svg>
   </div>
 
+  <div class="mobile-carousel">
+    <div class="carousel-track">
+      <img src="images/bg1.png" alt="">
+      <img src="images/bg2.png" alt="">
+      <img src="images/bg3.png" alt="">
+      <img src="images/bg4.png" alt="">
+      <img src="images/bg1.png" alt="">
+      <img src="images/bg2.png" alt="">
+      <img src="images/bg3.png" alt="">
+      <img src="images/bg4.png" alt="">
+    </div>
+  </div>
+
   <div class="video-stage">
 
     <div class="carousel-rail">
@@ -255,4 +300,3 @@
 
 </body>
 </html>
-
