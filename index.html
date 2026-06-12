@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clase Gratuita — Escuela de Influencers IA</title>
+<meta name="description" content="Descubre cómo creamos modelos de IA que se viralizan en Instagram y TikTok, y cómo convertir esa atención en ingresos.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8001A;
+    --red2: #FF1F38;
+    --bg: #080808;
+    --text: #F5F4EF;
+    --muted: #999;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow-x: hidden;
+    background-image: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(232,0,26,0.14) 0%, transparent 65%);
+  }
+
+  /* TOP ACCENT LINE */
+  .top-line {
+    position: absolute; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--red2));
+    box-shadow: 0 0 20px rgba(232,0,26,0.6);
+    animation: lineGrow 1.2s 0.1s ease-out forwards;
+  }
+  @keyframes lineGrow { to { width: 100%; } }
+
+  /* FLOATING BACKGROUND IMAGES */
+  .bg-images {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .bg-images img {
+    position: absolute; border-radius: 16px; object-fit: cover;
+    opacity: 0.12; filter: grayscale(40%);
+    animation: floatImg 22s ease-in-out infinite;
+  }
+  .bg-images img:nth-child(1) { width: 240px; height: 320px; top: 8%; left: 6%; animation-delay: 0s; }
+  .bg-images img:nth-child(2) { width: 200px; height: 280px; top: 55%; left: 10%; animation-delay: -6s; }
+  .bg-images img:nth-child(3) { width: 220px; height: 300px; top: 12%; right: 7%; animation-delay: -12s; }
+  .bg-images img:nth-child(4) { width: 200px; height: 260px; top: 58%; right: 9%; animation-delay: -18s; }
+
+  @keyframes floatImg {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(2deg); }
+  }
+
+  /* GLOW BELOW VIDEO */
+  .glow-bottom {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 500px;
+    background: radial-gradient(ellipse 50% 50% at 50% 100%, rgba(232,0,26,0.28) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,0,26,0.1); border: 1px solid rgba(232,0,26,0.3);
+    color: var(--red2); font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 6px 16px; border-radius: 99px;
+    margin-bottom: 28px; animation: fadeUp 0.6s ease both;
+  }
+  .badge-dot { width: 6px; height: 6px; background: var(--red2); border-radius: 50%; animation: pulse 1.5s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.02; letter-spacing: -0.5px; margin-bottom: 16px;
+    max-width: 820px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em { font-style: normal; color: var(--red); }
+
+  .subtitle {
+    font-size: clamp(15px, 2vw, 18px); color: var(--muted); max-width: 560px;
+    line-height: 1.6; margin-bottom: 36px; font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .video-wrap {
+    width: 100%; max-width: 800px; margin-bottom: 32px;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 30px 80px rgba(232,0,26,0.12), 0 30px 80px rgba(0,0,0,0.6);
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+  .video-wrap iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+
+  .cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; animation: fadeUp 0.7s 0.35s ease both; }
+
+  .btn-main {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--red); color: #fff;
+    font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800;
+    padding: 18px 44px; border-radius: 6px; text-decoration: none;
+    letter-spacing: -0.3px; transition: all 0.2s; border: none; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .btn-main::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .btn-main:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,0,26,0.3); }
+
+  .btn-arrow { font-size: 20px; transition: transform 0.2s; display: inline-block; }
+  .btn-main:hover .btn-arrow { transform: translateX(4px); }
+
+  .cta-note { font-size: 13px; color: var(--muted); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+  <div class="top-line"></div>
+
+  <div class="bg-images">
+    <img src="images/bg3.png" alt="">
+    <img src="images/bg4.png" alt="">
+    <img src="images/bg1.png" alt="">
+    <img src="images/bg2.png" alt="">
+  </div>
+
+  <div class="content">
+
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Clase gratuita disponible ahora
+  </div>
+
+  <h1>
+    El método que convierte <em>visitas en IA</em> en ingresos reales
+  </h1>
+
+  <p class="subtitle">
+    Descubre cómo creamos modelos de IA que se viralizan solas en Instagram y TikTok, y cómo convertir esa atención en ingresos sin mostrar tu cara.
+  </p>
+
+  <div class="video-wrap">
+    <iframe
+      src="https://player.vimeo.com/video/1195160524?h=7665855dbc&autoplay=0&title=0&byline=0&portrait=0"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+      title="Clase Gratuita — Escuela de Influencers IA"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="glow-bottom"></div>
+
+  <div class="cta-wrap">
+    <a href="https://stan.store/escueladeinfluencersia/p/escuela-de-influencers-ia" class="btn-main">
+      Obtén acceso
+      <span class="btn-arrow">→</span>
+    </a>
+    <span class="cta-note">🔒 Sin tarjeta. 100% gratuito.</span>
+  </div>
+
+  </div>
+
+</body>
+</html>
