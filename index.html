@@ -73,7 +73,7 @@
     max-width: 900px;
     animation: fadeUp 0.7s 0.1s ease both;
   }
-  h1 em { font-style: normal; color: var(--red2); }
+  h1 em { font-style: normal; color: #FF3B30; }
 
   .subtitle {
     font-family: 'Poppins', sans-serif;
@@ -83,11 +83,11 @@
   }
 
   @media (max-width: 640px) {
-    body { padding: 24px 16px; }
+    body { padding: 16px 16px; padding-top: 8px; }
     .sub-br { display: none; }
-    .badge { margin-bottom: 16px; }
-    h1 { padding: 0 8px; margin-bottom: 14px; }
-    .subtitle { padding: 0 12px; margin-bottom: 22px; }
+    .badge { margin-bottom: 12px; }
+    h1 { padding: 0 8px; margin-bottom: 12px; }
+    .subtitle { padding: 0 12px; margin-bottom: 0; }
     .video-stage { margin-bottom: 18px; }
   }
 
@@ -161,13 +161,17 @@
     .carousel-rail { display: none; }
   }
 
-  /* Carrusel visible en movil, encima del video */
+  /* Carrusel visible en movil: capa de fondo difuminada, mitad detras del subtitulo, mitad delante del video */
   .mobile-carousel {
     display: none;
+    position: relative;
     width: 100vw;
-    max-width: 100vw;
+    margin-left: -16px;
+    height: 220px;
+    margin-top: -90px;
+    margin-bottom: -90px;
     overflow: hidden;
-    margin: 0 -16px 14px;
+    z-index: 0;
     mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.9) 6%, rgba(0,0,0,0.9) 94%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.9) 6%, rgba(0,0,0,0.9) 94%, transparent 100%);
   }
@@ -176,15 +180,17 @@
     animation: scrollHorizontal 24s linear infinite;
   }
   .mobile-carousel .carousel-track img {
-    width: 110px;
-    height: 110px;
-    border-radius: 12px;
-    opacity: 0.9;
-    filter: grayscale(0%);
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    opacity: 0.35;
+    filter: grayscale(20%);
   }
 
   @media (max-width: 640px) {
     .mobile-carousel { display: block; }
+    .subtitle { position: relative; z-index: 1; }
+    .video-stage { position: relative; z-index: 1; }
   }
 
   .cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; animation: fadeUp 0.7s 0.35s ease both; }
