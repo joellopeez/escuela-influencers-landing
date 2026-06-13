@@ -98,7 +98,7 @@
     h1 { padding: 0 8px; margin-bottom: 14px; }
     .subtitle { padding: 0 12px; margin-bottom: 22px; }
     .video-stage { margin-bottom: 18px; }
-    .video-wrap { width: 78%; margin: 0 auto; }
+    .video-wrap { width: 68%; margin: 0 auto; }
     .cta-wrap { width: 100%; }
     .btn-main { width: 90%; padding: 20px 24px; font-size: 18px; }
   }
@@ -288,17 +288,19 @@
   <div class="mobile-line" aria-hidden="true">
     <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="mLineGrad" x1="0" y1="0" x2="300" y2="400" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#FF1F38" stop-opacity="0.9"/>
-          <stop offset="0.45" stop-color="#E8001A" stop-opacity="0.6"/>
+        <linearGradient id="mLineGrad" x1="0" y1="40" x2="400" y2="320" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FF2A3F" stop-opacity="0"/>
+          <stop offset="0.15" stop-color="#FF2A3F" stop-opacity="0.95"/>
+          <stop offset="0.5" stop-color="#E8001A" stop-opacity="0.7"/>
+          <stop offset="0.85" stop-color="#E8001A" stop-opacity="0.25"/>
           <stop offset="1" stop-color="#E8001A" stop-opacity="0"/>
         </linearGradient>
         <filter id="mLineBlur" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="8"/>
+          <feGaussianBlur stdDeviation="7"/>
         </filter>
       </defs>
-      <path d="M-30 -20 C 120 120, 60 260, 320 360" stroke="url(#mLineGrad)" stroke-width="14" filter="url(#mLineBlur)" opacity="0.5"/>
-      <path d="M-30 -20 C 120 120, 60 260, 320 360" stroke="url(#mLineGrad)" stroke-width="2"/>
+      <path d="M-20 40 C 140 150, 230 230, 430 300" stroke="url(#mLineGrad)" stroke-width="13" filter="url(#mLineBlur)" opacity="0.5"/>
+      <path d="M-20 40 C 140 150, 230 230, 430 300" stroke="url(#mLineGrad)" stroke-width="2"/>
     </svg>
   </div>
 
